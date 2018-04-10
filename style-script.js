@@ -2,6 +2,7 @@ var layer1 = document.getElementById("Layer1");
 var layer2 = document.getElementById("Layer2");
 var layer3 = document.getElementById("Layer3");
 var navButton = document.getElementById("nav-drop-button");
+var mobileWidth = 768;
 
 var originalNavHTML = document.getElementById("Layer1").innerHTML;
 var homeNavHTML = '<li class="navBox">Home</li>';
@@ -18,13 +19,14 @@ var mobile = false;
 init();
 
 function init() {
+  document.querySelector("head").innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
   window.addEventListener("resize", updateNav);
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < mobileWidth) {
     updateNav();
   }
 }
 function updateNav() {
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < mobileWidth) {
     if (!mobile) {
       console.log("switched to mobile");
       layer1.innerHTML = navHTML;
