@@ -6,8 +6,8 @@ var mobileWidth = 768;
 
 var originalNavHTML = document.getElementById("Layer1").innerHTML;
 var homeNavHTML = '<li class="navBox">Home</li>';
-var algebraNavHTML = '<li class="navBox"><span class="navHeader">Algebra IB</span><ul><li>Grades<ul><li>Check Grades</li></ul></li><li>Assignments</li><li>Resources</li><li>Course Information</li></ul></li>';
-var statsNavHTML = '<li class="navBox"><span class="navHeader">AP Statistics</span><ul><li>Grades<ul><li>Check Grades</li></ul></li><li>Assignments</li><li>Resources</li><li>Course Information</li></ul></li>';
+var algebraNavHTML = '<li class="navBox"><span class="navHeader">Algebra IB</span><ul class="hiddenNav"><li>Grades<ul><li>Check Grades</li></ul></li><li>Assignments</li><li>Resources</li><li>Course Information</li></ul></li>';
+var statsNavHTML = '<li class="navBox"><span class="navHeader">AP Statistics</span><ul class="hiddenNav"><li>Grades<ul><li>Check Grades</li></ul></li><li>Assignments</li><li>Resources</li><li>Course Information</li></ul></li>';
 var cahseeNavHTML = '<li class="navBox">CAHSEE Guide</li>';
 var parentResourcesNavHTML = '<li class="navBox">Parent Resources</li>';
 var emailNavHTML = '<li class="navBox">E-mail Mr. Iams</li>';
