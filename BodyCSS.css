@@ -25,7 +25,8 @@
   #Layer2 {
     position:static !important;
     width:75% !important;
-    min-width:350px !important;
+		height:auto !important;
+    min-width:400px !important;
     max-width:800px !important;
 		overflow:hidden;
 		padding:20px;
