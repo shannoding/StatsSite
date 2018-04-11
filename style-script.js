@@ -12,7 +12,7 @@ var cahseeNavHTML = '<li class="navBox"><a href="CAHSEE/flashcards_CAHSEE.htm">C
 var parentResourcesNavHTML = '<li class="navBox"><a href="parent.html">Parent Resources</a></li>';
 var emailNavHTML = '<li class="navBox"><a href="mailto:ken_iams@fuhsd.org">E-mail Mr. Iams</a></li>';
 var navHTML = '<div id="nav"><ul>' + homeNavHTML + algebraNavHTML + statsNavHTML + cahseeNavHTML + parentResourcesNavHTML + emailNavHTML + '</ul></div>';
-console.log(navHTML);
+
 var navButtonHTML = '<div id="nav-drop-button"><span></span><span></span><span></span></div>';
 var mobile = false;
 
@@ -20,18 +20,16 @@ init();
 
 function init() {
   document.querySelector("head").innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
-  window.addEventListener("resize", updateNav);
+  window.addEventListener("resize", mobileInit);
   if (window.innerWidth < mobileWidth) {
-    updateNav();
-
-    var moreDrops = layer1.getElementsByClassName("moreDrop");
-    for (var i = 0; i < moreDrops.length; i++) {
-      moreDrops[i].addEventListener("click", function() {
-        dropMoreDown(this);
-      });
-    }
+    mobileInit();
   }
 }
+
+function mobileInit() {
+  updateNav();
+}
+
 function updateNav() {
   if (window.innerWidth < mobileWidth) {
     if (!mobile) {
@@ -40,6 +38,14 @@ function updateNav() {
       layer3.innerHTML += navButtonHTML;
       navButton = document.getElementById("nav-drop-button");
       navButton.addEventListener("click", dropdown);
+
+      // more drops
+      var moreDrops = layer1.getElementsByClassName("moreDrop");
+      for (var i = 0; i < moreDrops.length; i++) {
+        moreDrops[i].addEventListener("click", function() {
+          dropMoreDown(this);
+        });
+      }
     }
     mobile = true;
   }
@@ -80,7 +86,6 @@ function dropMoreUp(item) {
   }
 }
 function dropMoreAllUp() {
-  console.log("dropped more all up");
   var moreDrops = layer1.getElementsByClassName("moreDrop");
   for (var i = 0; i < moreDrops.length; i++) {
     dropMoreUp(moreDrops[i]);
