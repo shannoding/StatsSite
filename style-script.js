@@ -23,6 +23,7 @@ function init() {
   window.addEventListener("resize", updateNav);
   if (window.innerWidth < mobileWidth) {
     updateNav();
+
     var moreDrops = layer1.getElementsByClassName("moreDrop");
     for (var i = 0; i < moreDrops.length; i++) {
       moreDrops[i].addEventListener("click", function() {
@@ -57,14 +58,31 @@ function updateNav() {
 
 function dropdown() {
   layer1.classList.toggle("dropdown");
+  if (!layer1.classList.contains("dropdown")) {
+    dropMoreAllUp();
+  }
 }
 function dropup() {
   layer1.classList.remove("dropdown");
+  dropMoreAllUp();
 }
 
 function dropMoreDown(item) {
   var toDrop = item.parentElement.getElementsByClassName("hideNav");
   for (var i = 0; i < toDrop.length; i++) {
     toDrop[i].classList.toggle("hiddenNav");
+  }
+}
+function dropMoreUp(item) {
+  var toDrop = item.parentElement.getElementsByClassName("hideNav");
+  for (var i = 0; i < toDrop.length; i++) {
+    toDrop[i].classList.add("hiddenNav");
+  }
+}
+function dropMoreAllUp() {
+  console.log("dropped more all up");
+  var moreDrops = layer1.getElementsByClassName("moreDrop");
+  for (var i = 0; i < moreDrops.length; i++) {
+    dropMoreUp(moreDrops[i]);
   }
 }
