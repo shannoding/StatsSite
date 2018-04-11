@@ -19,6 +19,9 @@ var mobile = false;
 init();
 
 function init() {
+  document.querySelector("head > link").setAttribute("href", "https://shannoding.github.io/stats-mobile/BodyCSS.css");
+
+
   document.querySelector("head").innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
   window.addEventListener("resize", mobileInit);
   if (window.innerWidth < mobileWidth) {
