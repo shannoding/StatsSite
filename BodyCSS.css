@@ -4,7 +4,7 @@
 	color: #000000;
 	list-style-type: lower-alpha;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	#Layer1 {
 		list-style:none !important;
 	}
